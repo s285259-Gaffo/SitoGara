@@ -1,0 +1,139 @@
+.classifica {
+  margin-bottom: 2rem;
+}
+
+.classifica h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.classifica-tabella {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tabella-header {
+  display: grid;
+  grid-template-columns: 80px 60px 1fr 1fr 100px;
+  gap: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pilota-row {
+  display: grid;
+  grid-template-columns: 80px 60px 1fr 1fr 100px;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.pilota-row:hover {
+  background: #f8f9fa;
+}
+
+.pilota-row:last-child {
+  border-bottom: none;
+}
+
+.pilota-row.primo {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  font-weight: bold;
+}
+
+.pilota-row.secondo {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+  font-weight: bold;
+}
+
+.pilota-row.terzo {
+  background: linear-gradient(135deg, #cd7f32 0%, #daa520 100%);
+  font-weight: bold;
+  color: white;
+}
+
+.col-pos {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.posizione-numero {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.medaglia {
+  font-size: 1.5rem;
+}
+
+.numero-pilota {
+  background: #333;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.col-pilota {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nazionalita {
+  font-size: 1.2rem;
+}
+
+.nome-pilota {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.col-team {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.punti-numero {
+  background: #28a745;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .tabella-header,
+  .pilota-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .tabella-header {
+    display: none;
+  }
+  
+  .pilota-row {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .col-pos,
+  .col-pilota {
+    justify-content: flex-start;
+  }
+}

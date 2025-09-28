@@ -1,0 +1,244 @@
+.statistiche {
+  margin-bottom: 2rem;
+}
+
+.statistiche h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: #e9ecef;
+  color: #495057;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background: #dee2e6;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.tab-content {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Statistiche */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid #667eea;
+}
+
+.stat-card.full-width {
+  grid-column: 1 / -1;
+  text-align: left;
+}
+
+.stat-card h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.stat-breakdown {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.stat-breakdown div {
+  margin-bottom: 0.25rem;
+}
+
+.stat-description {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.nazioni-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nazione-badge {
+  background: #667eea;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Meteo */
+.meteo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.meteo-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 4px solid #28a745;
+}
+
+.meteo-card h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.meteo-temp {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+
+.meteo-condizioni {
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #495057;
+}
+
+.meteo-dettagli {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.meteo-dettagli div {
+  margin-bottom: 0.25rem;
+}
+
+/* Circuito */
+.circuito-info {
+  max-width: 600px;
+}
+
+.circuito-header h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.4rem;
+}
+
+.circuito-specs {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+}
+
+.spec-label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.spec-value {
+  font-weight: bold;
+  color: #333;
+}
+
+.record-giro {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.record-giro h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.record-details {
+  text-align: center;
+}
+
+.record-tempo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.record-pilota {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.caratteristiche {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.caratteristiche h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.caratteristiche ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.caratteristiche li {
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .tab-navigation {
+    justify-content: center;
+  }
+  
+  .tab-button {
+    flex: 1;
+    min-width: 120px;
+  }
+}
