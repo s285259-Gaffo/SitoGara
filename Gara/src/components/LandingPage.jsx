@@ -25,7 +25,6 @@ export function LandingPage({ onNavigate, eventoInfo }) {
           <h1 className="main-title">
             <span className="title-competitio">COMPETITION</span>
             <span className="title-iuvenes">IUVENES</span>
-            <span className="title-iuvenes">IUVENES</span>
           </h1>
           <div className="event-details">
             <div className="event-date">{eventoInfo.data}</div>
