@@ -1,4 +1,4 @@
-import './ContattiSocial.css';
+import '../styles/ContattiSocial.css';
 
 export function ContattiSocial({ contatti, onBack }) {
   const handleSocialClick = (url) => {

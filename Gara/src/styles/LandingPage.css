@@ -53,7 +53,7 @@
 /* Header epico */
 .epic-header {
   margin-bottom: 4rem;
-  animation: heroEntrance 2s ease-out;
+  animation: heroEntrance 1s ease-out;
 }
 
 .main-title {
@@ -118,7 +118,11 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 3rem;
-  animation: buttonsEntrance 2.5s ease-out 0.5s both;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  padding: 0 2rem;
+  animation: buttonsEntrance 1s ease-out 0.3s both;
 }
 
 .epic-button {
@@ -205,7 +209,7 @@
 
 /* Footer */
 .landing-footer {
-  animation: footerEntrance 3s ease-out 1s both;
+  animation: footerEntrance 0.8s ease-out 0.5s both;
 }
 
 .organizer-info {
@@ -247,84 +251,11 @@
   backdrop-filter: blur(5px);
 }
 
-/* Particelle animate */
-.particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #FFD700;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: float 6s infinite ease-in-out;
-}
-
-.particle:nth-child(odd) {
-  background: #DDA0DD;
-}
-
-.particle:nth-child(3n) {
-  background: #FF6B6B;
-}
-
-/* Posizionamento particelle */
-.particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
-.particle-2 { top: 80%; left: 90%; animation-delay: 1s; }
-.particle-3 { top: 30%; left: 80%; animation-delay: 2s; }
-.particle-4 { top: 70%; left: 20%; animation-delay: 3s; }
-.particle-5 { top: 10%; left: 50%; animation-delay: 4s; }
-.particle-6 { top: 90%; left: 60%; animation-delay: 5s; }
-.particle-7 { top: 40%; left: 30%; animation-delay: 0.5s; }
-.particle-8 { top: 60%; left: 70%; animation-delay: 1.5s; }
-.particle-9 { top: 15%; left: 75%; animation-delay: 2.5s; }
-.particle-10 { top: 85%; left: 25%; animation-delay: 3.5s; }
-.particle-11 { top: 25%; left: 15%; animation-delay: 4.5s; }
-.particle-12 { top: 75%; left: 85%; animation-delay: 5.5s; }
-.particle-13 { top: 35%; left: 55%; animation-delay: 1s; }
-.particle-14 { top: 65%; left: 45%; animation-delay: 2s; }
-.particle-15 { top: 5%; left: 35%; animation-delay: 3s; }
-.particle-16 { top: 95%; left: 65%; animation-delay: 4s; }
-.particle-17 { top: 45%; left: 5%; animation-delay: 0.8s; }
-.particle-18 { top: 55%; left: 95%; animation-delay: 1.8s; }
-.particle-19 { top: 12%; left: 88%; animation-delay: 2.8s; }
-.particle-20 { top: 88%; left: 12%; animation-delay: 3.8s; }
-
-/* Animazioni */
+/* Animazioni professionali e discrete */
 @keyframes heroEntrance {
   0% {
     opacity: 0;
-    transform: translateY(-50px) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes buttonsEntrance {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes footerEntrance {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(-20px);
   }
   100% {
     opacity: 1;
@@ -332,13 +263,22 @@
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.6;
+@keyframes buttonsEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes footerEntrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -347,6 +287,11 @@
 @media (max-width: 1200px) {
   .landing-content {
     padding: 2rem 1.5rem;
+  }
+  
+  .action-buttons {
+    max-width: 500px;
+    padding: 0 1rem;
   }
 }
 
@@ -362,6 +307,8 @@
   
   .action-buttons {
     gap: 1rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
   }
   
   .epic-button {
@@ -386,6 +333,10 @@
 }
 
 @media (max-width: 480px) {
+  .action-buttons {
+    padding: 0;
+  }
+  
   .epic-button {
     padding: 1rem;
   }

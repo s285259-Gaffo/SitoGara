@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './GalleriaFoto.css';
+import '../styles/GalleriaFoto.css';
 
 export function GalleriaFoto({ fotoPrecedenti, onBack }) {
   const [selectedPhoto, setSelectedPhoto] = useState(null);

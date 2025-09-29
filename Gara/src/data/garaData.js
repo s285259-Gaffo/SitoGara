@@ -8,7 +8,7 @@ export const eventoInfo = {
   descrizione: "La più spettacolare competizione giovanile di bodybuilding e fitness in un'arena antica e suggestiva",
   status: "Evento Completato",
   organizzatore: "Andrea Romeo",
-  backgroundImage: "/images/arena-background.jpg"
+  backgroundImage: "/images/sfondo_gara.jpg"
 };
 
 // Programma dell'evento (opzionale - usato solo se mostri la sezione programma)

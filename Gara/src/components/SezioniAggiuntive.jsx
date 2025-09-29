@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './SezioniAggiuntive.css';
+import '../styles/SezioniAggiuntive.css';
 
 export function SezioniAggiuntive({ iscritti, regolamento, contatti }) {
   const [activeSection, setActiveSection] = useState('iscritti');

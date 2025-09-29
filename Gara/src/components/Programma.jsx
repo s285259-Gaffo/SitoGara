@@ -1,4 +1,4 @@
-import './Programma.css';
+import '../styles/Programma.css';
 
 export function Programma({ programma }) {
   const getTipoIcon = (tipo) => {

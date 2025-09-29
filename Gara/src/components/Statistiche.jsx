@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Statistiche.css';
+import '../styles/Statistiche.css';
 
 export function Statistiche({ statistiche, meteo, circuito }) {
   const [activeTab, setActiveTab] = useState('stats');

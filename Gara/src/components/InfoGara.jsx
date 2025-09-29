@@ -1,4 +1,4 @@
-import './InfoGara.css';
+import '../styles/InfoGara.css';
 
 export function InfoGara({ garaInfo }) {
   const getStatusColor = (status) => {

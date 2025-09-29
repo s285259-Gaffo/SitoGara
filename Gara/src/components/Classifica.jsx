@@ -1,4 +1,4 @@
-import './Classifica.css';
+import '../styles/Classifica.css';
 
 export function Classifica({ classifica }) {
   const getPodiumClass = (posizione) => {

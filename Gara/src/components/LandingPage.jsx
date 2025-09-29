@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './LandingPage.css';
+import '../styles/LandingPage.css';
 
 export function LandingPage({ onNavigate, eventoInfo }) {
   const [showAnimation, setShowAnimation] = useState(false);
@@ -70,7 +70,7 @@ export function LandingPage({ onNavigate, eventoInfo }) {
         </div>
 
         {/* Footer con organizzatore */}
-        <footer className="landing-footer">
+        {/* <footer className="landing-footer">
           <div className="organizer-info">
             <p>Organizzato da</p>
             <h3>Andrea Romeo</h3>
@@ -79,14 +79,7 @@ export function LandingPage({ onNavigate, eventoInfo }) {
               <span>💬 @competitio_iuvenes</span>
             </div>
           </div>
-        </footer>
-      </div>
-
-      {/* Effetti particelle (opzionale) */}
-      <div className="particles">
-        {[...Array(20)].map((_, i) => (
-          <div key={i} className={`particle particle-${i + 1}`}></div>
-        ))}
+        </footer> */}
       </div>
     </div>
   );

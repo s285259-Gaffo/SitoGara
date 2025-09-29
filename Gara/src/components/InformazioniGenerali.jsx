@@ -1,4 +1,4 @@
-import './InformazioniGenerali.css';
+import '../styles/InformazioniGenerali.css';
 
 export function InformazioniGenerali({ eventoInfo, onBack }) {
   return (
