@@ -1,3 +1,5 @@
 # Pubblicazione
-npm run build
-npm run deploy   # 🚀 Sito online aggiornato!
+- npm run publish # 🚀 Sito online aggiornato!
+
+# Lavorare in Locale 
+- npm run dev

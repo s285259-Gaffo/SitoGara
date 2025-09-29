@@ -65,13 +65,14 @@
 
 .title-competitio {
   display: block;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: bold;
   background: linear-gradient(45deg, #FFD700, #FFA500, #FF6347);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 0.1em;
+  margin-bottom: 1rem;
 }
 
 .title-iuvenes {
@@ -83,7 +84,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: 0.15em;
-  margin-top: -0.5rem;
 }
 
 .event-details {
