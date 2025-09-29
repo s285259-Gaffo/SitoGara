@@ -1,28 +1,21 @@
-name: Deploy Vite app to GitHub Pages
+name: Build and Deploy to SitoOnline
 
 on:
   push:
     branches:
-      - SitoOnline  # Deploy automatico solo quando fai push su SitoOnline
+      - SitoOnline  # Quando pusho su SitoOnline, builda e sostituisce il contenuto
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-# Consenti solo un deploy alla volta
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,26 +29,28 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to SitoOnline branch
+      - name: Deploy to same branch
         run: |
           # Configura git
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           
-          # Salva la build in una cartella temporanea
-          cp -r dist ../temp-dist
+          # Salva la build
+          cp -r dist/* .
+          cp dist/.* . 2>/dev/null || true
           
-          # Pulisce tutto tranne .git
-          find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
+          # Rimuovi cartelle di sviluppo
+          rm -rf src
+          rm -rf public
+          rm -rf node_modules
+          rm -rf .github
+          rm -f package.json package-lock.json vite.config.js eslint.config.js
+          rm -f README.md
           
-          # Copia la build nella root
-          cp -r ../temp-dist/* .
-          cp -r ../temp-dist/.* . 2>/dev/null || true
-          
-          # Crea .nojekyll per GitHub Pages
+          # Crea .nojekyll per evitare Jekyll
           touch .nojekyll
           
           # Commit e push
           git add .
-          git commit -m "Deploy: $(date)" || exit 0
-          git push origin SitoOnline
+          git commit -m "Auto-deploy: $(date)" || exit 0
+          git push
