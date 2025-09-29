@@ -6,7 +6,7 @@ on:
       - SitoOnline  # Deploy automatico solo quando fai push su SitoOnline
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,13 +17,12 @@ concurrency:
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -37,14 +36,26 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to SitoOnline branch
+        run: |
+          # Configura git
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Salva la build in una cartella temporanea
+          cp -r dist ../temp-dist
+          
+          # Pulisce tutto tranne .git
+          find . -maxdepth 1 -not -name '.git' -not -name '.' -exec rm -rf {} +
+          
+          # Copia la build nella root
+          cp -r ../temp-dist/* .
+          cp -r ../temp-dist/.* . 2>/dev/null || true
+          
+          # Crea .nojekyll per GitHub Pages
+          touch .nojekyll
+          
+          # Commit e push
+          git add .
+          git commit -m "Deploy: $(date)" || exit 0
+          git push origin SitoOnline
