@@ -1,21 +1,28 @@
-name: Build and Deploy to SitoOnline
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - SitoOnline  # Quando pusho su SitoOnline, builda e sostituisce il contenuto
+      - SitoOnline
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,28 +36,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to same branch
-        run: |
-          # Configura git
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          
-          # Salva la build
-          cp -r dist/* .
-          cp dist/.* . 2>/dev/null || true
-          
-          # Rimuovi cartelle di sviluppo
-          rm -rf src
-          rm -rf public
-          rm -rf node_modules
-          rm -rf .github
-          rm -f package.json package-lock.json vite.config.js eslint.config.js
-          rm -f README.md
-          
-          # Crea .nojekyll per evitare Jekyll
-          touch .nojekyll
-          
-          # Commit e push
-          git add .
-          git commit -m "Auto-deploy: $(date)" || exit 0
-          git push
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
