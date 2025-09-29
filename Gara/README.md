@@ -138,6 +138,53 @@ Per domande o personalizzazioni, contatta l'organizzazione della gara.
 
 **Made with ❤️ for motorsport enthusiasts**+ Vite
 
+## 🚀 Deploy Automatico
+
+Il progetto utilizza un workflow a **2 branch**:
+
+### 📝 Branch `main` (Sviluppo)
+- **Scopo**: Sviluppo e test
+- **Push**: Puoi pushare liberamente senza aggiornare il sito
+- **Uso**: Lavoro quotidiano, esperimenti, modifiche
+
+### 🌐 Branch `SitoOnline` (Produzione)
+- **Scopo**: Sito pubblicato
+- **Push**: Ogni push → GitHub Pages si aggiorna automaticamente
+- **Uso**: Solo quando vuoi pubblicare le modifiche
+
+### 🔄 Workflow consigliato:
+
+#### Sviluppo quotidiano:
+```bash
+# Lavora sempre su main
+git checkout main
+git add .
+git commit -m "modifiche in sviluppo"
+git push origin main
+```
+*(Il sito NON si aggiorna)*
+
+#### Quando vuoi pubblicare:
+```bash
+# Passa al branch di produzione
+git checkout SitoOnline
+git merge main
+git push origin SitoOnline
+```
+*(Il sito si aggiorna automaticamente)*
+
+#### Torna a sviluppare:
+```bash
+git checkout main
+```
+
+### Sito live:
+🌐 [https://s285259-gaffo.github.io/SitoGara/](https://s285259-gaffo.github.io/SitoGara/)
+
+---
+
+## 🛠️ Setup Tecnico
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
